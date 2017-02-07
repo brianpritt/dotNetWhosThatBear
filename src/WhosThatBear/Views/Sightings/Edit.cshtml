@@ -1,0 +1,26 @@
+﻿@model WhosThatBear.Models.Sighting
+
+@{
+    ViewData["Title"] = "Sighting - Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>EDIT YO SIGHTING</h2>
+<hr />
+<h4>Edit this sighting: @Html.DisplayFor(model => model.Date)</h4>
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model=>model.SightingId)
+
+    @Html.LabelFor(model=>model.Species)
+    @Html.DropDownList("SpeciesId")
+
+    @Html.LabelFor(model => model.Longitude)
+    @Html.EditorFor(model=>model.Longitude)
+
+    @Html.LabelFor(model => model.Latitude)
+    @Html.EditorFor(model => model.Latitude)
+
+    <input type="submit" value="Save" class="btn btn-default" />
+}
+@Html.ActionLink("Back to Sightings List", "Index")

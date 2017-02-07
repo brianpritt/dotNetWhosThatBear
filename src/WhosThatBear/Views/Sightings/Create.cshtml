@@ -1,0 +1,27 @@
+﻿@model WhosThatBear.Models.Sighting
+
+@{ 
+    ViewData["Title"] = "Sighting - Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Create a new sighting</h2>
+<hr />
+
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(model => model.Date)
+    @Html.EditorFor(model => model.Date)
+
+    @Html.LabelFor(model => model.SpeciesId)
+    @Html.DropDownList("SpeciesId")
+
+    @Html.LabelFor(model => model.Latitude)
+    @Html.EditorFor(model => model.Latitude)
+
+    @Html.LabelFor(model => model.Longitude)
+    @Html.EditorFor(model => model.Longitude)
+
+    <input type="submit" value="Create" class="btn btn-default" />
+}
+
+@Html.ActionLink("Back to List", "Index")

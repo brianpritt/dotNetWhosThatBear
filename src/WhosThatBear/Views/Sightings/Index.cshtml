@@ -1,0 +1,35 @@
+﻿@model IEnumerable<WhosThatBear.Models.Sighting>
+@{ 
+    ViewData["Title"] = "Who's That Bear?";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Sightings</h2>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Species.Name)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var listSighting in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelSighting => listSighting.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelSighting => listSighting.Species.Name)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = listSighting.SightingId }) |
+                @Html.ActionLink("Details", "Details", new { id = listSighting.SightingId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = listSighting.SightingId })
+            </td>
+        </tr>
+    }
+</table>
